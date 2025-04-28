@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #ffffe0;
+      overflow: hidden;
+      position: relative;
+    }
+    .ponto {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: blue;
+      border-radius: 50%;
+      pointer-events: none; 
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const rastros = [];
+  const maxPontos = 8;
+
+  document.addEventListener('mousemove', function(event) {
+    const ponto = document.createElement('div');
+    ponto.className = 'ponto';
+    ponto.style.left = (event.pageX - 5) + 'px';
+    ponto.style.top = (event.pageY - 5) + 'px';
+
+    document.body.appendChild(ponto);
+    rastros.push(ponto);
+
+    if (rastros.length > maxPontos) {
+      const primeiro = rastros.shift();
+      primeiro.remove();
+    }
+  });
+</script>
+
+</body>
+</html>

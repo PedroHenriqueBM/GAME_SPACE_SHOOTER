@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráfico de Barras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #grafico {
+      margin-top: 20px;
+      display: flex;
+      align-items: flex-end;
+      height: 300px;
+      padding: 10px;
+      gap: 10px;
+    }
+    .barra {
+      background-color: red;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Um Gráfico de Barras</h1>
+
+  <div>
+    <label>Informe a altura das barras:</label>
+    <input type="text" class="alturas"  >
+    <input type="text" class="alturas"  >
+    <input type="text" class="alturas"  >
+    <input type="text" class="alturas"  >
+    <input type="text" class="alturas"  >
+  </div>
+  
+
+  <div>
+     <label for="largura">Informe a largura das barras:</label>
+     <input type="text" id="largura">
+  </div>
+ 
+
+  <button onclick="desenharGrafico()">Desenhar o gráfico</button>
+
+  <div id="grafico"></div>
+
+  <script>
+    function desenharGrafico() {
+      const divGrafico = document.getElementById('grafico');
+      divGrafico.innerHTML = ''; // Limpar gráfico anterior
+
+
+      const alturas = [];
+      for(let i=0;i<document.getElementsByClassName('alturas').length;i++){
+        alturas.push(document.getElementsByClassName('alturas').item(i).value);
+      }
+      
+      const largura = parseInt(document.getElementById('largura').value);
+
+      alturas.forEach(altura => {
+        const barra = document.createElement('div');
+        barra.className = 'barra';
+        barra.style.width = largura + 'px';
+        barra.style.height = altura + 'px';
+        divGrafico.appendChild(barra);
+      });
+    }
+  </script>
+
+</body>
+</html>
