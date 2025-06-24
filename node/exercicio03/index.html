@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Lorem Ipsum</title>
+    <style>
+        body{
+            background-color: aliceblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        h1{
+            display: flex;
+            letter-spacing: 6px;
+        }
+        
+        .main-box{
+            display: flex;
+            width: 600px;
+            height: auto;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="main-box" >
+        <h1>GERADOR DE LOREN IPSUM!</h1>
+      
+            <label for="quantity">Parágrafos:</label>
+            <input type="number" id="quantityInput" name="quantity"/>
+            <button type="button" onclick="submit()">Gerar</button>
+        
+        <div class="box-lorem-ipsum">
+
+        </div>
+    </div>
+    
+    <script>
+
+        function submit(){
+            
+            const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+            let quantityLoremIpsum = document.getElementById("quantityInput").value;
+            let boxLoremInpsum = document.getElementsByClassName("box-lorem-ipsum").item(0);
+
+          
+            let children = boxLoremInpsum.children;
+
+            for (let i = children.length - 1; i >= 0; i--) {
+                boxLoremInpsum.removeChild(children.item(i));
+            }
+
+            
+            for(let i=0;i<quantityLoremIpsum;i++){
+                let newElement = document.createElement("p");
+                newElement.innerHTML = lorem;
+                boxLoremInpsum.appendChild(newElement);
+            }
+
+        }
+
+        
+
+
+    </script>
+</body>
+</html>
