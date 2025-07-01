@@ -1,0 +1,38 @@
+{{#if falha}}
+{{{falha}}}
+{{/if}}
+
+<div>
+
+    <div class="box-label-page">
+        <h1>Listagem de Usuários</h1>
+
+        <i class="bi bi-plus-square fs-1 bt-page" onclick="redirect('user/create')"></i>
+
+
+    </div>
+
+
+    <div class="box-page">
+
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Fullname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Operações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if users}}
+                    {{{listUsers users}}}
+                {{/if}}
+                
+            </tbody>
+        </table>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,38 @@
+{{#if falha}}
+{{{falha}}}
+{{/if}}
+
+
+<div>
+
+<div class="box-label-page">
+    <h1>Listagem de Cursos</h1>
+    
+        <i class="bi bi-plus-square fs-1 bt-page" onclick="redirect('major/create')"></i>
+     
+ 
+</div>
+
+
+<div class="box-page">
+
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if majors}}
+                {{{listMajors majors}}}
+            {{/if}}
+            
+        </tbody>
+    </table>
+
+</div>
+
+
+</div>

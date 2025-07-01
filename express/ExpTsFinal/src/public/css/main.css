@@ -1,0 +1,50 @@
+#header {
+  color: #4d926f;
+}
+
+h2 {
+  color: #4d926f;
+}
+
+.box-label-page {
+  display: flex;
+  padding: 2%;
+  justify-content: space-between;
+}
+
+.box-page {
+  display: flex;
+  padding: 2%;
+}
+
+.bt-page {
+  display: flex;
+}
+
+.bt-page:hover {
+  cursor: pointer;
+  color: rgb(99, 161, 161);
+}
+
+.colum-bt {
+  display: flex;
+  column-gap: 30px;
+}
+
+.box-create {
+  display: flex;
+  padding: 2%;
+  justify-content: space-between;
+}
+
+.form {
+  width: 50%;
+  height: auto;
+  display: grid;
+  margin-top: 5%;
+  margin-left: 5%;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+/*# sourceMappingURL=main.css.map */

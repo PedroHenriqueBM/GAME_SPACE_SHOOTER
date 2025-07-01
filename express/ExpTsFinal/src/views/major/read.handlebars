@@ -1,0 +1,37 @@
+{{#if falha}}
+{{{falha}}}
+{{/if}}
+
+
+<div class="box-label-page">
+    <h1>Curso</h1>
+
+
+</div>
+
+{{#if major}}
+
+<form class="form">
+
+    <div class="mb-3">
+        <label for="code" class="form-label">Código</label>
+        <input type="text" value="{{major.code}}" disabled class="form-control" id="code" name="code" placeholder="IC002">
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" disabled value="{{major.name}}" class="form-control" id="name" name="name" placeholder="Ciência da Computação">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Descrição</label>
+        <textarea class="form-control" disabled id="description" name="description" rows="3">
+{{major.description}}
+        </textarea>
+    </div>
+
+    <button class="btn btn-outline-secondary" type="button"  onclick="redirect('/major')">Voltar</button>
+
+</form>
+
+
+
+{{/if}}

@@ -1,0 +1,32 @@
+
+{{#if falha}}
+    {{{falha}}}
+{{/if}}
+
+
+<div class="box-label-page">
+    <h1>Criação de Curso</h1>
+
+
+</div>
+
+<form class="form" action="/major/create" method="post">
+
+<div class="mb-3">
+    <label for="code" class="form-label">Código</label>
+    <input type="text" class="form-control" id="code" name="code" placeholder="IC002">
+</div>
+<div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Ciência da Computação">
+</div>
+<div class="mb-3">
+    <label for="description" class="form-label">Descrição</label>
+    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+</div>
+
+<button class="btn btn-outline-secondary" type="submit">Criar</button>
+</form>
+
+
+

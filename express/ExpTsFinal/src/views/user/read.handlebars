@@ -1,0 +1,38 @@
+{{#if falha}}
+{{{falha}}}
+{{/if}}
+
+
+<div class="box-label-page">
+    <h1>Usuário</h1>
+
+
+</div>
+
+{{#if user}}
+{{#if majors}}
+    <form class="form" method="post">
+    
+        <div class="mb-3">
+            <label for="fullname" class="form-label">Fullname</label>
+            <input disabled value="{{user.fullname}}" type="text" class="form-control" id="fullname" name="fullname"
+                placeholder="Pedro Henrique Barros Mendonça">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input disabled value="{{user.email}}" type="text" class="form-control" id="email" name="email"
+                placeholder="pedro.brrs.mendonca@gmail.com">
+        </div>
+        <div class="mb-3">
+            <label for="majorId" class="form-label">Curso</label>
+            <select disabled id="majorId" name="majorId" class="form-select" aria-label="Selecione o curso">
+                {{{listMajorsToUser majors user.majorId}}}
+            </select>
+        </div>
+    
+        <button class="btn btn-outline-secondary" type="button" onclick="redirect('/user')">Voltar</button>
+    </form>
+{{/if}}
+{{/if}}
+
+
