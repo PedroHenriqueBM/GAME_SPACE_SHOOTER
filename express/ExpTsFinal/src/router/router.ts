@@ -6,6 +6,7 @@ import middlewares from './middlewares/middlewares';
 import common from './common/common';
 import major from './major/major';
 import user from './user/user';
+import game from './game/game';
 const router = Router();
 
 
@@ -18,6 +19,7 @@ router.use("/",
     staticFiles,
     user,
     major,
+    game,
     common
 );
 

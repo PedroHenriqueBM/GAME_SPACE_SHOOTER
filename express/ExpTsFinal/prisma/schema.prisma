@@ -29,6 +29,7 @@ model User {
   id           String        @id @default(uuid()) @db.Char(40)
   fullname     String        @db.VarChar(100)
   email        String        @db.VarChar(100)
+  password     String        @db.Char(60)
   majorId      String        @db.Char(40)
   major        Major         @relation(fields: [majorId], references: [id])
   createdAt    DateTime      @default(now()) @map("created_at")

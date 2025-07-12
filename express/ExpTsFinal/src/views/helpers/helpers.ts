@@ -20,7 +20,7 @@ export function listMajors(major: Major[]) {
                 <td class="colum-bt">
                     <i class="bi bi-eye fs-3 bt-page" onclick="redirect('major/read/${t.id}')"></i>
                     <i class="bi bi bi-pen fs-3 bt-page" onclick="redirect('major/update/${t.id}')"></i>
-                    <i class="bi bi bi-trash fs-3 bt-page" onclick="deletarMajor('${t.id}')"></i>
+                    <i class="bi bi bi-trash fs-3 bt-page" onclick="openModalDelete('Você deseja deletar o curso ${t.code}?','Deletar curso',false,deletarMajor,'${t.id}')"></i>
                 </td>
             </tr>
     `)
@@ -49,7 +49,7 @@ export function listUsers(user: User[]) {
                 <td class="colum-bt">
                     <i class="bi bi-eye fs-3 bt-page" onclick="redirect('user/read/${u.id}')"></i>
                     <i class="bi bi bi-pen fs-3 bt-page" onclick="redirect('user/update/${u.id}')"></i>
-                    <i class="bi bi bi-trash fs-3 bt-page" onclick="deletarUser('${u.id}')"></i>
+                    <i class="bi bi bi-trash fs-3 bt-page" onclick="openModalDelete('Você deseja deletar o usuário ${u.fullname}?','Deletar usuário',false,deletarUser,'${u.id}')"></i>
                 </td>
             </tr>
     `)

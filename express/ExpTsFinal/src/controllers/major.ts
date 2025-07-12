@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import * as majorService from '../services/major.service'
 import { errorMessage } from '../utils/errorMessage';
+import { modalDelete } from '../utils/modalDelete';
 import Joi from 'joi';
 
 
@@ -17,10 +18,11 @@ let schemaParamns = Joi.object({
 const index = async (req: Request, res: Response) => {
     try {
         let majors = await majorService.getAllMajors();
-        res.render('major/index', { majors });
+        res.render('major/index', { majors, delete: modalDelete() });
     } catch (err) {
         res.render("major/index", {
-            falha: errorMessage("Falha ao ler cursos", String(err), 500, true)
+            falha: errorMessage("Falha ao ler cursos", String(err), 500, true),
+            delete: modalDelete()
         })
     }
 

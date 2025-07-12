@@ -1,7 +1,25 @@
 import { PrismaClient, User } from '@prisma/client'
-import { CreateUserDto, UpdateUserDto } from '../types/user';
+import { CreateUserDto, UpdateUserDto, LoginDto } from '../types/user';
+
+import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
+
+
+export const checkAuth = async (credentials: LoginDto):
+    Promise<User | undefined> => {
+    const user = await prisma.user.findFirst({
+        where: {
+            email: credentials.email
+        }
+    })
+    if (!user) return undefined
+    let passwordok = await bcrypt.compare(
+        credentials.password, user.password
+    )
+
+    return passwordok ? user : undefined;
+}
 
 const getAllUsers = async (): Promise<User[]> => {
     return prisma.user.findMany({
@@ -14,7 +32,12 @@ const getAllUsers = async (): Promise<User[]> => {
 const createUser = async (
     newUser: CreateUserDto
 ): Promise<User> => {
-    return await prisma.user.create({ data: newUser })
+    const salt = await bcrypt.genSalt(10)
+    const password = await bcrypt.hash(newUser.password, salt)
+    return await prisma.user.create({
+        data: { ...newUser, password }
+    })
+
 }
 
 const getUser = async (id: string): Promise<User> => {
@@ -23,6 +46,9 @@ const getUser = async (id: string): Promise<User> => {
 
 const updateUser = async (id: string, user: UpdateUserDto): Promise<[affectedCount: number]> => {
 
+    const salt = await bcrypt.genSalt(10)
+    const password = await bcrypt.hash(user.password, salt)
+
     const result = (await prisma.user.updateMany({
         where: {
             id: id
@@ -30,7 +56,8 @@ const updateUser = async (id: string, user: UpdateUserDto): Promise<[affectedCou
         data: {
             email: user.email,
             fullname: user.fullname,
-            majorId: user.majorId
+            majorId: user.majorId,
+            password: password
         }
     }));
 

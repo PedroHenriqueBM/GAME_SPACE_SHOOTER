@@ -1,0 +1,30 @@
+{{#if falha}}
+{{{falha}}}
+{{/if}}
+
+
+<div class="box-label-page">
+    <h1>Login de Usuário</h1>
+
+
+</div>
+
+
+<form class="form" action="/login" method="post">
+
+    
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input required type="text" maxlength="100" class="form-control" id="email" name="email"
+            placeholder="pedro.brrs.mendonca@gmail.com">
+    </div>
+    
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input maxlength="60" required type="text" class="form-control" id="password" name="password"
+            placeholder="123669lbjo9">
+    </div>
+
+ 
+    <button class="btn btn-outline-secondary" type="submit">Logar</button>
+</form>

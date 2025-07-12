@@ -1,7 +1,7 @@
 import { Response, Request, NextFunction } from 'express';
 import fs from 'fs'
 
-function logger(simple: Boolean, req: Request, res: Response) {
+function logger(simple: Boolean, req: Request, res: Response, next: NextFunction) {
 
     const path_log = process.env.PATH_LOG || '';
 
@@ -11,7 +11,27 @@ function logger(simple: Boolean, req: Request, res: Response) {
         fs.writeFile(path_log, oldData + "\n" + newData, 'utf8', (err) => { });
     })
 
+    next()
+}
+
+function authRequired(req: Request, res: Response, next: NextFunction) {
+
+
+    if (req.path !== '/login' && req.path !== '/logout') {
+        if (req.session.uid) {
+            next();
+        } else {
+
+            res.redirect("/login")
+
+        }
+    } else {
+
+        next()
+    }
+
+
 
 }
 
-export { logger };
+export { logger, authRequired };

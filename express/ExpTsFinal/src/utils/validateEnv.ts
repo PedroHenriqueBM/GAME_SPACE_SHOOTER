@@ -9,7 +9,8 @@ const validateEnv = () => {
         NODE_ENV: str(),
         PORT: port(),
         PATH_LOG: str(),
-        DATABASE_URL: str()
+        DATABASE_URL: str(),
+        SECRET_COOKIE: str()
     });
 
 };

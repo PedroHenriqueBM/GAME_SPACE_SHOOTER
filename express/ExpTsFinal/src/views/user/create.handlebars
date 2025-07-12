@@ -13,17 +13,26 @@
 
     <div class="mb-3">
         <label for="fullname" class="form-label">Fullname</label>
-        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Pedro Henrique Barros Mendonça">
+        <input required type="text" maxlength="100" class="form-control" id="fullname" name="fullname" placeholder="Pedro Henrique Barros Mendonça">
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="text" class="form-control" id="email" name="email" placeholder="pedro.brrs.mendonca@gmail.com">
+        <input required type="text" maxlength="100" class="form-control" id="email" name="email" placeholder="pedro.brrs.mendonca@gmail.com">
     </div>
     <div class="mb-3">
         <label for="majorId" class="form-label">Curso</label>
-        <select id="majorId" name="majorId" class="form-select" aria-label="Selecione o curso">
+        <select required id="majorId" name="majorId" class="form-select" aria-label="Selecione o curso">
             {{{listMajorsToUser majors}}}
         </select>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input maxlength="60" required type="text" class="form-control" id="password" name="password" placeholder="123669lbjo9">
+    </div>
+
+    <div class="mb-3">
+        <label for="repeatPassword" class="form-label">Repeat Password</label>
+        <input maxlength="60" required type="text" class="form-control" id="repeatPassword" name="repeatPassword" placeholder="123669lbjo9">
     </div>
 
     <button class="btn btn-outline-secondary" type="submit">Criar</button>
